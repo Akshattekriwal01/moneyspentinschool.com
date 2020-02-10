@@ -36,11 +36,14 @@ function moneySpentLive(timeOfOpeningPage, multiplier, currency) {
   intravelId = setInterval(() => {
     console.log("wtf");
     let html = `
-    <p>${moneySpent(multiplier)} ${currency} </p>
+    <p style="font-size:18px">${moneySpent(multiplier)} ${currency} </p>
      <p>Money Spent after opening this website: ${moneySpentAfterOpeningPage(
        timeOfOpeningPage,
        multiplier
-     )} ${currency}</p>`;
+     )} ${currency}</p>
+     <p>Time Spent on the Website : ${msToTime(
+       new Date().getTime() - timeOflandingOnWebsite.getTime()
+     )}</p>`;
     $("#mainContainer").html(html);
   }, 500);
 }
@@ -62,4 +65,21 @@ function start(currency) {
   } else if (currency == "₩") {
     moneySpentLive(timeOfOpeningPage, 1189, currency);
   }
+}
+
+function msToTime(s) {
+  var ms = s % 1000;
+  s = (s - ms) / 1000;
+  var secs = s % 60;
+  s = (s - secs) / 60;
+  var mins = s % 60;
+  var hrs = (s - mins) / 60;
+
+  return (
+    hrs.toString().padStart(2, 0) +
+    ":" +
+    mins.toString().padStart(2, 0) +
+    ":" +
+    secs.toString().padStart(2, 0)
+  );
 }
