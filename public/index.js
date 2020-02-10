@@ -1,6 +1,6 @@
 $(() => {
   // after loading html
-  start("Rs");
+  start("$");
   //$("#mainContainer").html(moneySpent());
 });
 
