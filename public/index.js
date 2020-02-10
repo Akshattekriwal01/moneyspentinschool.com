@@ -17,9 +17,10 @@ function moneySpent(multiplier) {
   return moneySpentUntilNow;
 }
 let intravelId;
+const timeOflandingOnWebsite = new Date();
 function moneySpentAfterOpeningPage(timeOfOpeningPage, multiplier) {
   const tuition = 25000 * (multiplier || 1);
-  const startDate = timeOfOpeningPage;
+  const startDate = timeOflandingOnWebsite;
   const today = new Date();
   const numberOfDaysPerSemester = 107;
   const moneySpentPerMintue = tuition / (numberOfDaysPerSemester * 24 * 60);
